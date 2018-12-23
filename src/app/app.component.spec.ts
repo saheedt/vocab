@@ -1,12 +1,15 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent
       ],
+      imports: [
+        FontAwesomeModule
+      ]
     }).compileComponents();
   }));
 
@@ -26,6 +29,20 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to vocab!');
+    expect(compiled.querySelector('h1').textContent).toContain('vocab!');
+  });
+
+  it('should render button tag', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('button')).toBeTruthy()
+  });
+
+  it('should render font-awesome custom component tag', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('fa-icon')).toBeTruthy()
   });
 });
