@@ -4,10 +4,11 @@
         {{ title }}!
         </h1>
     <div class="welcome-box flex flex-column flex-align-center flex-justify-center">
-        <input type="text" name="word" id="search-input" placeholder="search word..."/>
+        <input type="text" name="word" id="search-input"
+        [(ngModel)]='word' placeholder="search word..."/>
     </div>
     <div class="welcome-box search-container flex flex-column flex-align-center ">
-        <button id="search-btn">
+        <button id="search-btn" (click)="onSearchClicked()">
         <fa-icon [icon]="['fas', 'search']"></fa-icon>
         </button>
     </div>
