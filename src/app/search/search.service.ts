@@ -1,22 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
-import { ISearch } from './search';
+import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators'
+import { catchError } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
-  private baseUrl = 'https://od-api.oxforddictionaries.com:443/api/v1/entries/en/'
-  private header: HttpHeaders = new HttpHeaders({
-    Accept: "application/json",
-    app_id: 'e7348a4c',
-    app_key: '3b4bf5b2bbb1b3c4aa930c974b0b091c'
-  })
   constructor(private http: HttpClient) { }
-  searchWord(word: String): Observable<ISearch> {
-    return this.http.get<ISearch>(`${word}`/* ${this.baseUrl}, { headers: this.header }*/)
+  searchWord(word: String): Observable<any> {
+    return this.http.post('/api/api-relay', { word: `${word}` })
                 .pipe(
                   catchError(this.errorHandler)
                 );

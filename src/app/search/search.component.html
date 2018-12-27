@@ -1,4 +1,7 @@
 <div style="text-align:center" class="search-glob-container flex-align-center flex-justify-center">
+    <div *ngIf="searchError" id="search-error">
+        <div class="error-center"><span id="search-error-msg">{{searchError}}</span></div>
+    </div>
     <section class="flex flex-column flex-align-center search-section">
         <h1>
         {{ title }}!
