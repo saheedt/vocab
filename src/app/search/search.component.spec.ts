@@ -1,17 +1,28 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchComponent } from './search.component';
+import { SearchService } from './search.service'
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { WordDetailsService } from '../wordDetails/word-details.service';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;
   let fixture: ComponentFixture<SearchComponent>;
-
+  const routes: Routes = [
+    { path: '', component: SearchComponent }
+  ];
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ SearchComponent ],
-      imports: [ FontAwesomeModule ]
+      imports: [ CommonModule, FontAwesomeModule,
+        FormsModule , HttpClientModule,
+        RouterModule.forRoot(routes)],
+      providers: [HttpClient]
     })
     .compileComponents();
   }));
