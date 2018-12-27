@@ -16,7 +16,8 @@
 }
 #search-input {
     height: 50%;
-    width: 80%
+    width: 80%;
+    border: 1px solid lightgrey;
 }
 .search-section{
     height: 50vh;
@@ -30,7 +31,7 @@
     margin-right: auto;
     margin-left: auto;
     height: 100vh;
-    background-color: lightgrey;
+    background-color: #fff;
     display: flex
 }
 #search-btn {

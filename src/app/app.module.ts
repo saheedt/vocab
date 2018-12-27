@@ -1,14 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
+
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+
+import { AppComponent } from './app.component';
 import { WordDetailsModule } from './wordDetails/word-details.module';
 import { SearchModule } from './search/search.module'; 
 import { SearchComponent } from './search/search.component';
-import { HttpClientModule } from '@angular/common/http';
+
 
 const routes: Routes = [
   { path: '', component: SearchComponent }
@@ -22,7 +25,8 @@ const routes: Routes = [
     WordDetailsModule,
     SearchModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    Ng4LoadingSpinnerModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
