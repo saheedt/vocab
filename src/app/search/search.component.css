@@ -5,7 +5,7 @@
 .flex {
     display: flex;
 }
-.flex-align-center{
+.flex-align-center {
     align-items: center
 }
 .flex-justify-center {
@@ -19,7 +19,7 @@
     width: 80%;
     border: 1px solid lightgrey;
 }
-.search-section{
+.search-section {
     height: 50vh;
     width: 100%;
     max-width: 420px;
@@ -32,7 +32,8 @@
     margin-left: auto;
     height: 100vh;
     background-color: #fff;
-    display: flex
+    display: flex;
+    flex-direction: column;
 }
 #search-btn {
     width: 50%;
@@ -43,4 +44,18 @@
 ::-webkit-input-placeholder {
   text-align: center;
   font-size: 1.2rem
+}
+#search-error {
+    height: 3rem;
+	border-color: rgb(226, 168, 167);
+}
+#search-error-msg {
+    font-size: 1rem;
+	font-weight: bold;
+	color: rgb(213, 109, 109);
+	-webkit-font-smoothing: antialiased;
+}
+.error-center {
+    margin-left: auto;
+    margin-right: auto;
 }
