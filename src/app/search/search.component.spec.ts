@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SearchComponent } from './search.component';
 import { SearchService } from './search.service'
 
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -10,6 +11,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { WordDetailsService } from '../wordDetails/word-details.service';
 
+class SpinnerMock {
+  show() {}
+  hide() {}
+}
 describe('SearchComponent', () => {
   let component: SearchComponent;
   let fixture: ComponentFixture<SearchComponent>;
@@ -22,7 +27,7 @@ describe('SearchComponent', () => {
       imports: [ CommonModule, FontAwesomeModule,
         FormsModule , HttpClientModule,
         RouterModule.forRoot(routes)],
-      providers: [HttpClient]
+      providers: [HttpClient, {provide: Ng4LoadingSpinnerService, useClass: SpinnerMock}]
     })
     .compileComponents();
   }));

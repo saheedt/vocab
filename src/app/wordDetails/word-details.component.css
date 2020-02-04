@@ -8,7 +8,12 @@
     border-bottom: 0px
 }
 .pronunciation {
+    display: flex;
+    align-items: center;
     padding-bottom: 0.5rem;
+}
+.pronunciation audio {
+    margin-left: 0.5rem;
 }
 .bk-btn{
     background-color: powderblue;

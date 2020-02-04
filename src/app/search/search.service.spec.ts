@@ -8,7 +8,7 @@ import { ISearch } from './search';
 describe('SearchService', () => {
   let searchService: SearchService;
   let http: any;
-  const httpSpy = jasmine.createSpyObj('HttpClient', ['get']);
+  const httpSpy = jasmine.createSpyObj('HttpClient', ['post']);
   beforeEach(() => {
 
     TestBed.configureTestingModule({
@@ -28,14 +28,15 @@ describe('SearchService', () => {
     const service: SearchService = TestBed.get(SearchService);
     expect(service).toBeTruthy();
   });
-  it('should invoke HttpClient get method', () => {
+
+  it('should invoke HttpClient post method', () => {
     const stubValue: ISearch = {
       metadata: {},
       results: []
     };
     const expected = cold('--metadata-results|', stubValue)
-    http.get.and.returnValue(expected);
+    http.post.and.returnValue(expected);
     searchService.searchWord('test')
-    expect(httpSpy.get).toHaveBeenCalled()
+    expect(httpSpy.post).toHaveBeenCalled()
   });
 });
