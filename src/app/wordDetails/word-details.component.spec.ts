@@ -29,7 +29,7 @@ describe('WordDetailsComponent', () => {
             lexicalCategory: "Noun",
             pronunciations: [
               {
-                audioFile: 'https://x.com',
+                audioFile: 'https://x.com/',
                 phoneticSpelling: "ɡeɪm"
               }
             ]
@@ -69,10 +69,19 @@ describe('WordDetailsComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('button')).toBeTruthy();
   });
+
   it('should render title in a button with appropriate label', () => {
     const fixture = TestBed.createComponent(WordDetailsComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('button').textContent).toContain('Back');
+  });
+
+  it('should render audio tag', () => {
+    const fixture = TestBed.createComponent(WordDetailsComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    const audioFile = details.results[0].lexicalEntries[0].pronunciations[0].audioFile;
+    expect(compiled.querySelector('audio').src).toEqual(audioFile);
   });
 });
