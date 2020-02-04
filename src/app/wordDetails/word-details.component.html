@@ -15,11 +15,13 @@
                 <div class='col-md-8' style="color: #666666"><h1>{{wordDetails.results[0].word}}</h1></div>
                 </div>
                 <div class='row'>
-                <div class='col-md-8 pronunciation'><h5>[{{wordDetails.results[0].lexicalEntries[0].pronunciations[0].phoneticSpelling}}]</h5></div>
+                <div class='col-md-8 pronunciation'>
+                    <h5>[{{wordDetails.results[0].lexicalEntries[0].pronunciations[0].phoneticSpelling}}]</h5>
+                    <audio id="word-audio" controls *ngIf='wordDetails' src={{audioFile}}></audio>
                 </div>
                 <div class='row' *ngFor='let mainPath of wordDetails.results[0].lexicalEntries'>
                 <div class='col-md-8' style="color: #666666">
-                    <h4>{{mainPath.lexicalCategory}}</h4>
+                    <h4>{{mainPath.lexicalCategory.text}}</h4>
                 </div>
                 <ul *ngFor='let sense of mainPath.entries[0].senses' class='col-md-12' style='margin-left: 2rem'>
                     <li *ngIf='sense.definitions'>{{sense.definitions[0]}}</li>

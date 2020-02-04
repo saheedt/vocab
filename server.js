@@ -32,7 +32,7 @@ app.route('/api/api-relay').post((req, res) => {
 
 app.use(express.static(path.resolve('./dist/vocab')));
 app.get('*', (req, res) => {
-  res.sendFile(path.join('./dist/vocab/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/vocab/index.html'));
 });
 
 app.listen(process.env.PORT || 8080);
